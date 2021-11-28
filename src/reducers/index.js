@@ -1,10 +1,3 @@
-// action = {
-//   type: 'CREATE',
-//   title: '2020東京オリンピック',
-//   body: '2020年'
-// state = []
-// state = []
-
 const events = (state=[], action) => {
  switch(action.type) {
    case 'CREATE_EVENT':
@@ -21,4 +14,4 @@ const events = (state=[], action) => {
  }
 }
 
-export default event
+export default events
