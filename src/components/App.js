@@ -2,6 +2,7 @@ import React, {useReducer, useState} from 'react'
 
 import 'bootstrap/dist/css/bootstrap.min.css'
 
+import Event from './Event'
 import reducer from '../reducers'
 
 const App = () => {
@@ -50,22 +51,7 @@ const App = () => {
           </tr>
         </thead>
         <tbody>
-          {
-            state.map((event,index) => {
-              const id = event.id
-              const handleClickDeleteButton = () => {
-                dispatch({type: 'DELETE_EVENT', id})
-              }
-              return(
-                <tr key={index}>
-                  <td>{id}</td>
-                  <td>{event.title}</td>
-                  <td>{event.body}</td>
-                  <td><button type="button" className="btn btn-danger" onClick={handleClickDeleteButton}>削除</button></td>
-                </tr>
-              )
-            })
-          }
+          {state.map((event,index) => (<Event key={index} event={event} dispatch={dispatch}/>))}
         </tbody>
       </table>
     </div>
